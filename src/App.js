@@ -22,6 +22,7 @@ import {
 } from "@mui/material";
 import { postApit } from "./webservice";
 //import { textAlign } from '@mui/system';
+import Clogo from "./component/Clogo";
 
 function App() {
   const loanData = {
@@ -95,14 +96,38 @@ function App() {
   }
 
   const handleSubmit = (e) => {
+    if (!inputField.bankName) {
+      alert("Bank Name cannot be empty");
+    } else if (!inputField.outstandingAmt) {
+      alert("Outstanding Amount cannot be empty");
+    } else if (!inputField.interestRate) {
+      alert("Interest Rate cannot be empty");
+    } else if (!inputField.interestType) {
+      alert("Interest Type cannot be empty");
+    } else if (!inputField.loanType) {
+      alert("Loan Type cannot be empty ");
+    } else if (!inputField.term) {
+        alert("Term cannot be empty ");
+      }
+      else if (!inputField.properties) {
+        alert("Properties cannot be empty ");
+      }
+      else if (!inputField.loanType) {
+        alert("Loan Type cannot be empty ");
+      }
+     else {
+
+
     let inputF = inputField;
-    let coBrw = coborrow;
+   // let coBrw = coborrow;
     e.preventDefault();
     console.log(inputF);
     //console.log("isCoborowed:" + coBrw);
     addLoan()
+    alert("Succesfully Saved  ");
 
     console.log("loans :" + inputField.loanData);
+    }
   };
 
   return (
@@ -113,6 +138,7 @@ function App() {
         <Container maxWidth="md">
           <Box
             sx={{
+              padding: 5,
               display: "flex",
               marginTop: 5,
               boxShadow: 10,
@@ -133,11 +159,10 @@ function App() {
                     justifyContent: "space-between ",
                   }}
                 >
-                  <h2>Loan Details</h2>
+                  <h1>Loan Details</h1>
                   <Stack direction="row" spacing={2}>
-                    <Avatar alt="Clinsj" src="src/images/ClinsjLogo.jpg" />
+                             <Clogo />
 
-                    <img alt="" src="" />
                   </Stack>
                 </FormControl>
                 <div>
