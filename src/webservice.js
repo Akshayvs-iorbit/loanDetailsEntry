@@ -1,4 +1,3 @@
-import axios from "axios";
 export async function postApit(url, data) {
   await fetch("https://bftrlhhwv6.execute-api.us-east-1.amazonaws.com/dev"+url, {
     method: "POST",
